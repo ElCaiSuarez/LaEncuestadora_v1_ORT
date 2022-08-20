@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebApp.NET_MVC_2022_12D_PP_Encuestadora.Models.Encuesta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Encuestas</h1>
+
+<p>Comentario1: Deberia filtrar las encuestas del Cliente </p>
+<p>
+    <a asp-action="Create">Nueva Encuesta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tituloEncuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datetimeCreacionEncuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datetimeVencimientoEncuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.puntosEncuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tituloEncuesta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datetimeCreacionEncuesta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datetimeVencimientoEncuesta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.puntosEncuesta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.nombreCliente)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.EncuestaId">Ver Encuesta</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <p><a class="text-dark" asp-area="" asp-controller="Cliente" asp-action="Index">Volver a Clientes</a></p>
+</div>

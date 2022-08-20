@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApp.NET_MVC_2022_12D_PP_Encuestadora.Models.Pregunta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Preguntas</h1>
+
+<p>Comentario1: Deberia filtrar las encuestas del Cliente y las preguntas de la Encuesta</p>
+<p>
+    <a asp-action="Create">Nueva Pregunta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tituloPregunta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoPregunta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Encuesta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tituloPregunta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipoPregunta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Encuesta.tituloEncuesta)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.PreguntaId">Ver Pregunta</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <p><a class="text-dark" asp-area="" asp-controller="Encuesta" asp-action="Index">Volver a Encuestas</a></p>
+</div>

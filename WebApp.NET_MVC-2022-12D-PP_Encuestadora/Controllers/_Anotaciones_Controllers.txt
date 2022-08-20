@@ -1,0 +1,6 @@
+﻿USO DE METODOS ASINCRONICOS PARA LA CONECCION CON LA DB:
+https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-6.0&tabs=visual-studio#asynchronous-ef-methods-in-aspnet-core-web-apps
+EJEMPLO DE INCLUDE y THENINCLUDE PARA CARGAR LAS NAVIGATION PROPERTIES
+https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/crud?view=aspnetcore-6.0#read-enrollments
+ESTADOS DE ENTIDADES
+https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/crud?view=aspnetcore-6.0#entity-states

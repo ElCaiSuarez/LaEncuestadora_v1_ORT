@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "LogIn Page";
+}
+<div>
+    @*<p>--------------------Seccion LogIn--------------------</p>*@
+    Ingrese usuario
+    <input type="text" />
+    Ingrese contraseña
+    <input type="password" />
+    <input type="button" value="Entrar" class="btn btn-primary"/>
+    <br />
+    <p>--------------------Seccion Clientes--------------------</p>
+    <input type="button" value="Registrese" asp-area="" asp-action="Create" asp-controller="Cliente" class="btn btn-primary" /> | 
+    <a asp-area="" asp-controller="Cliente" asp-action="Index">Index Clientes</a>
+    <p>Comentario1: Falta filtrar encuestas solo creadas por el cliente <b> REALIZADO</b></p>
+    <p>Comentario2: Falta ver resultado de EncuestaRespondida del cliente <b> REALIZADO</b></p>
+    <p>Comentario3: Falta solucionar error en tiempo de ejecucion creates <b> REALIZADO</b></p>
+    <p>--------------------Seccion Usuarios--------------------</p>
+    <input type="button" value="Registrese" asp-area="" asp-action="Create" asp-controller="Usuario" class="btn btn-primary" /> | 
+    <a asp-area="" asp-controller="Usuario" asp-action="Index">Index Usuarios</a>
+    <p>Comentario1: Falta ver encuestas disponibles para usuarios <b> REALIZADO</b></p>
+    <p>Comentario2: Falta ver puntos acumulados por el usuario <b> REALIZADO</b></p>
+    <p>Comentario3: Falta ver respuestas de EncuestaRespondida del Usuario <b> REALIZADO</b></p>
+    <p>Comentario4: Falta la creacion de EncuestaRespondida con datos de Usuario y Encuesta y Sumar puntos<b> REALIZADO</b></p>
+</div>

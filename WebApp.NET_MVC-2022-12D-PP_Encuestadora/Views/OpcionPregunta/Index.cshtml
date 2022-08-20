@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApp.NET_MVC_2022_12D_PP_Encuestadora.Models.OpcionPregunta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Opciones</h1>
+
+<p>Comentario1: Deberia filtrar las encuestas del Cliente, las Preguntas de la Encuesta y las Opciones de la pregunta</p>
+<p>
+    <a asp-action="Create">Nueva Opcion</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tituloOpcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.opcionSeleccionada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pregunta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tituloOpcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opcionSeleccionada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pregunta.tituloPregunta)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.OpcionPreguntaId">Ver Opcion</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div>
+    <p><a class="text-dark" asp-area="" asp-controller="Pregunta" asp-action="Index">Volver a Preguntas</a></p>
+</div>

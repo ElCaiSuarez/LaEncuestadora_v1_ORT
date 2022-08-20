@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebApp.NET_MVC_2022_12D_PP_Encuestadora.Models.EncuestaRespondida>
+
+@{
+    ViewData["Title"] = "Respuesta";
+}
+
+<h1>Resultado</h1>
+@*<p>Comentario1: Deberia filtrar las encuestas respondidas por el usuario <b>REALIZADO</b></p>*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.datetimeRespuestaEncuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.encuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pregunta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.opcionPregunta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.datetimeRespuestaEncuesta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.encuesta.tituloEncuesta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pregunta.tituloPregunta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opcionPregunta.tituloOpcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.nombreUsuario)
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div>
+    <a href="/Usuario/Details/@ViewBag.UsuarioId">Volver al Usuario</a>
+</div>

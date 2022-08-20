@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebApp.NET_MVC_2022_12D_PP_Encuestadora.Models.Encuesta>
+
+@{
+    ViewData["Title"] = "Disponibles";
+}
+
+<h1>Encuestas Disponibles</h1>
+
+@*<p>Comentario1: Deberia filtrar las encuestas vencidas <b>REALIZADO</b></p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tituloEncuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datetimeCreacionEncuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datetimeVencimientoEncuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.puntosEncuesta)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @*RECORRO ENCUESTAS*@
+        @foreach (var item in Model)
+        {
+            //VALIDO QUE CADA ENCUESTA NO ESTE VENCIDA Y TENGA PREGUNTAS
+            if (item.datetimeVencimientoEncuesta > DateTime.Now && item.preguntas.Count > 0)
+            {
+                var encuestaCompleta = true;
+                var i = 0;
+                var preguntas = item.preguntas.ToList();
+                //VALIDO QUE CADA PREGUNTA TENGA OPCIONES
+                while (i < preguntas.Count && encuestaCompleta)
+                {
+                    if (preguntas[i].opciones.Count <= 0)
+                    {
+                        encuestaCompleta = false;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                //SI ESTA COMPLETA MUESTRO LA ENCUESTA
+                if (encuestaCompleta)
+                {
+                    
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tituloEncuesta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.datetimeCreacionEncuesta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.datetimeVencimientoEncuesta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.puntosEncuesta)
+                        </td>
+                        <td>
+                            <a href="/EncuestaRespondida/ResponderPreguntas?EncuestaId=@item.EncuestaId&UsuarioId=@ViewBag.UsuarioId">Responder</a>
+                            
+                        </td>
+                    </tr>
+                }
+
+            }
+        }
+    </tbody>
+</table>
+<div>
+    <a href="/Usuario/Details/@ViewBag.UsuarioId">Volver al Usuario</a>
+</div>

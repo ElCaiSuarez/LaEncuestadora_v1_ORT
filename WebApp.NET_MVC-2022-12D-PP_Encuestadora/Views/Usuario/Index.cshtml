@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebApp.NET_MVC_2022_12D_PP_Encuestadora.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Usuarios</h1>
+
+<p>
+    <a asp-action="Create">Nuevo Usuario</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.nombreUsuario)
+                </th>
+                <th>
+                    <a asp-action="Details" asp-route-id="@item.UsuarioId">Ver Usuario</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+

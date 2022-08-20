@@ -1,0 +1,69 @@
+﻿@model WebApp.NET_MVC_2022_12D_PP_Encuestadora.Models.Usuario
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Html.DisplayFor(model => model.nombreUsuario)</h1>
+@*<p>Comentario1: Deberia acceder a las encuestas disponibles (no vencidas) y dar los resultados de las encuestas vencidas <b>REALIZADO</b></p>*@
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.puntosAcumulados)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.puntosAcumulados) |
+            <a href="/Usuario/Details/@Model.UsuarioId">Canjear Puntos</a>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.mailUsuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.mailUsuario)
+        </dd>
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.passwordUsuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.passwordUsuario)
+        </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.dniUsuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.dniUsuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.datetimeFechaNacimiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.datetimeFechaNacimiento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.domicilioUsuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.domicilioUsuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.preferenciaUsuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.preferenciaUsuario)
+        </dd>
+        <dd class="col-sm-9">
+            <table class="table">
+                <tr>
+                    <th><a href="/EncuestaRespondida/Respuesta?SearchString=@Model.nombreUsuario">Ver Respuestas</a></th>
+                    <th><a href="/Encuesta/Disponibles?UsuarioId=@Model.UsuarioId">Ver Encuestas disponibles</a></th>
+                    @*<th><a asp-area="" asp-controller="Encuesta" asp-action="Disponibles">Ver Encuestas disponibles</a></th>*@
+                </tr>
+                
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UsuarioId">Editar</a> |
+    <a asp-action="Index">Volver a Lista de Usuarios</a>
+</div>

@@ -1,0 +1,1 @@
+﻿https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/crud?view=aspnetcore-6.0#read-enrollments
